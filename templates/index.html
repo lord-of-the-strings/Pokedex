@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% if pokemon %}
+        <h1>{{ pokemon.name | capitalize }}</h1>
+        <img src="{{ pokemon.sprites.other['official-artwork'].front_default }}" alt="{{ pokemon.name }}">
+        <h3>Types:</h3>
+        <ul>
+            {% for t in pokemon.types %}
+                <li>{{ t.type.name }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Stats:</h3>
+        <ul>
+            {% for s in pokemon.stats %}
+                <li>{{ s.stat.name }}: {{ s.base_stat }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Abilities:</h3>
+        <ul>
+            {% for a in pokemon.abilities %}
+                <li>{{ a.ability.name }}{% if a.hidden %} (hidden){% endif %}</li>
+            {% endfor %}
+        </ul>
+
+        <p>Height: {{ pokemon.height }}</p>
+        <p>Weight: {{ pokemon.weight }}</p>
+        <p>Base Experience: {{ pokemon.base_experience }}</p>
+
+    {% else %}
+        <p>No Pokemon found.</p>
+    {% endif %}
+</body>
+</html>

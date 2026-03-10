@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inconsolata:wght@400;600;700&display=swap');
+
+:root {
+    --red: #e63946;
+    --yellow: #ffd166;
+    --dark: #0d0d0d;
+    --surface: #1a1a2e;
+    --card: #16213e;
+    --border: #0f3460;
+    --text: #e0e0e0;
+    --muted: #6b7280;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Inconsolata', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+h1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.6rem;
+    color: #fff;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 0 var(--red);
+}
+
+h3 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    color: var(--yellow);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 1.5rem 0 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+}
+
+img {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+    margin: 1rem auto;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6));
+    transition: transform 0.3s ease;
+}
+
+img:hover { transform: scale(1.06) translateY(-4px); }
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+li {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    text-transform: capitalize;
+}
+
+p {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+/* Wrap everything in a card */
+body > * {
+    width: min(500px, 100%);
+}
+
+/* No pokemon state */
+body > p {
+    text-align: center;
+    color: var(--muted);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    margin-top: 4rem;
+    background: none;
+    border: none;
+}
