@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <form>
+        <input type="text" name="pokemon_name" placeholder="Enter Pokémon name">
+        <button type="submit">Search</button>
+    </form>
     {% if pokemon %}
         <h1>{{ pokemon.name | capitalize }}</h1>
         <img src="{{ pokemon.sprites.other['official-artwork'].front_default }}" alt="{{ pokemon.name }}">
@@ -26,7 +30,7 @@
         <h3>Abilities:</h3>
         <ul>
             {% for a in pokemon.abilities %}
-                <li>{{ a.ability.name }}{% if a.hidden %} (hidden){% endif %}</li>
+                <li>{{ a.ability.name }}{% if a.is_hidden %} (hidden){% endif %}</li>
             {% endfor %}
         </ul>
 
